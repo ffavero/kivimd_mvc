@@ -53,6 +53,7 @@ setup(
     include_package_data=True,
     packages=[
         "minuta_ui",
+        "minuta_ui.utils",
         "minuta_ui.model",
         "minuta_ui.view",
         "minuta_ui.view.analysis_screen",
