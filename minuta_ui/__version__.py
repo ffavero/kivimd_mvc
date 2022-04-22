@@ -1,0 +1,5 @@
+VERSION = "0.1"
+DATE = "11/04/2022"
+AUTHOR = "Francesco Favero"
+MAIL = "ff"
+WEBSITE = "calidris.io"

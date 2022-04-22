@@ -1,0 +1,133 @@
+
+<AnalysisScreenView>:
+    GridLayout:
+        rows: 2
+        padding:"10dp"
+        GridLayout:
+            cols: 2
+            padding:"10dp"
+            MDCard:
+                halign: "center"
+                pos_hint: {"center_x":0.5, "center_y":0.5}
+                size_hint: (0.25,1)
+                GridLayout:
+                    rows:3
+                    GridLayout:
+                        cols:2
+                        spacing:"2dp"
+                        padding:"2dp"
+                        MDBoxLayout:
+                            orientation: "vertical"
+                            size_hint: (0.3,1)
+                            MDBoxLayout:
+                                orientation: "horizontal"
+                                MDLabel:
+                                    text: "Select date range"
+                                    font_style: "Caption"
+                            MDBoxLayout:
+                                orientation: "horizontal"
+                                spacing: "20dp"
+                                MDTextField:
+                                    id: date_start
+                                    text: "01-01-21"
+                                    helper_text: "Type or select the date"
+                                    helper_text_mode: "on_error"
+                                    width: "300dp"
+                                MDTextField:
+                                    id: date_end
+                                    text: "31-12-21"
+                                    helper_text: "Type or select the date"
+                                    helper_text_mode: "on_error"
+                                    width: "300dp"
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            size_hint: (0.2,1)
+                            MDIconButton:
+                                pos_hint: {"center_x":0.5, "center_y":0.5}
+                                icon: "calendar"
+                                user_font_size: "64sp"
+                                theme_icon_color: "Custom"
+                                icon_color: app.theme_cls.primary_color
+                                on_press: root.controller.show_date_picker()
+                    MDBoxLayout:
+                        orientation:"vertical"
+                        padding: "5dp"
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            padding: "5dp"
+                            MDLabel:
+                                text: "Select testing period size"
+                                font_style: "Caption"
+                        MDBoxLayout:
+                            orientation: "horizontal"
+                            padding: "5dp"
+                            MDSlider:
+                                min: 40
+                                max: 241
+                                value: root.model.testing_period
+                                show_off: False
+                                on_active: root.controller.set_testing_period(self.value)
+                            MDBoxLayout:
+                                orientation: "horizontal"
+                                MDIconButton:
+                                    pos_hint: {"center_x":0.5, "center_y":0.5}
+                                    icon: "minus"
+                                    theme_icon_color: "Custom"
+                                    icon_color: app.theme_cls.primary_color
+                                    on_press: root.controller.diff_testing_period(-1)
+                                MDLabel:
+                                    id: testing_period
+                                    font_style: "Caption"
+                                    text: root.model.testing_period_str
+                                MDIconButton:
+                                    pos_hint: {"center_x":0.5, "center_y":0.5}
+                                    icon: "plus"
+                                    theme_icon_color: "Custom"
+                                    icon_color: app.theme_cls.primary_color
+                                    on_press: root.controller.diff_testing_period(1)
+
+                    GridLayout:
+                        cols:3
+                        MDBoxLayout:
+                            orientation:"vertical"
+                            padding: "5dp"
+                            MDBoxLayout:
+                                orientation: "horizontal"
+                                padding: "5dp"
+                                MDLabel:
+                                    text: "Select IS/OS period ratio"
+                                    font_style: "Caption"
+                            MDBoxLayout:
+                                orientation: "horizontal"
+                                padding: "5dp"
+                                MDSlider:
+                                    min: 0.15
+                                    max: 0.4
+                                    value: root.model.testing_ratio
+                                    show_off: False
+                                    on_active: root.controller.set_testing_ratio(self.value)
+                                MDBoxLayout:
+                                    orientation: "horizontal"
+                                    MDLabel:
+                                        id: testing_ratio
+                                        font_style: "Caption"
+                                        text: root.model.testing_ratio_str
+                        MDBoxLayout:
+                            orientation:"vertical"
+                            MDRaisedButton:
+                                text: "Start"
+                                pos_hint: {"center_x":0.5, "center_y":0.5}
+
+            MDCard:
+                pos_hint: {"center_x":0.5, "center_y":0.5}
+                size_hint: (0.45,1)     
+                MDBoxLayout:
+                    canvas.before:
+                        Color:
+                            rgba: 0.8, 0.8, 0.8, 1
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size               
+        MDLabel:
+            text: "analysis"
+            halign: "center"
