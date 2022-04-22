@@ -41,7 +41,7 @@ classifier_text = """
 """
 
 setup(
-    name="minuta",
+    name="minuta_ui",
     python_requires=">3.4.0",
     version=VERSION,
     description=("A strategy optimization framework"),
@@ -50,6 +50,7 @@ setup(
     author_email=MAIL,
     url=WEBSITE,
     license="GPLv3",
+    include_package_data=True,
     packages=[
         "minuta_ui",
         "minuta_ui.model",
