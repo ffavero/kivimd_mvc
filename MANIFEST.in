@@ -1,2 +1,2 @@
 include requirements.txt
-recursive-include minuta_ui/view *
+recursive-include minuta_ui/view *.kv

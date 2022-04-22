@@ -55,6 +55,8 @@ setup(
         "minuta_ui",
         "minuta_ui.model",
         "minuta_ui.view",
+        "minuta_ui.view.analysis_screen",
+        "minuta_ui.view.projects_list_screen",
         "minuta_ui.control",
     ],
     test_suite="test",
